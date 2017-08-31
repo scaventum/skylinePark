@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <script src="clock.js"></script>
 <script>
-	function speedFunction(){
+	function timeFunction(){
 	var date = new Date();
 	var year = date.getFullYear();
 	var month = date.getMonth();
@@ -32,7 +32,7 @@
 	var timestampTime = dateNumber+"/"+month+"/"+year+" "+hour +":"+ minute +":"+ second;	
 	document.getElementById("timestampTime").innerHTML = timestampTime;
 		
-   	var refresher=setTimeout("speedFunction()", 20);
+   	var refresher=setTimeout("timeFunction()", 20);
 }
 </script>
 </head>
