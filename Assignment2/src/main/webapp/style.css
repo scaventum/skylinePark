@@ -30,25 +30,24 @@ a{
 	height:40px;
 	float:right;
 }
-#timestampDay{
+#timestampTime{
 	width:150px;
 	height:30px;
 	font-size:18px;
-	color:#4CAF50;
+	color:#33AA33;
 	text-align:right;
 }
-#timestampTime{
+#timestampDay{
 	width:150px;
 	height:10px;
 	font-size:12px;
 	color:#333;
-	font-family:"Courier New";
 	text-align:right;
 }
 
 #content{
 	width:100%;
-	margin:100px auto;	
+	margin:50px auto 0px;	
 	text-align:center;
 }
 
@@ -62,13 +61,13 @@ a{
 	text-decoration:none;
 	text-align:center;
 	font-size:24px;
-	border:2px solid #4CAF50;
+	border:2px solid #33AA33;
 	border-radius:5px;
 	display: inline-block;
 }
 
 .menu:hover{
-	background-color:#4CAF50;
+	background-color:#33AA33;
 	color:#fff;
 }
 
@@ -76,6 +75,68 @@ a{
 	display: inline-block;
 	width:20px;
 	height:20px;
+}
+
+.input100{
+	width:276px;
+	padding:10px;
+	border:2px solid #33AA33;
+	border-radius:5px;
+	margin:0px auto;
+	font-family:"Tahoma";
+	font-weight: bold;
+	font-size:24px;
+	text-align:center;
+	text-transform:uppercase;
+}
+.input100[readonly]{
+	color:#33AA33;
+	background-color:#CCFFCC;
+}
+
+.label100{
+	width:300px;
+	margin:0px auto;
+	text-align:left;
+}
+
+.vMargin{
+	width:100%;
+	clear:both;
+}
+
+#footer{
+	margin:0 auto;
+	width:100%;
+	text-align:center;
+	font-size:12px;
+}
+
+.btnForm{
+	background-color:#33AA33;
+	border:2px solid #33AA33;
+	border-radius:5px;
+	color:#fff;
+	cursor: pointer;
+	font-family:"Tahoma";
+}.btnForm:hover{
+	border:2px solid #6666ff;
+	background-color:#6666ff;
+	color:#fff;
+}
+
+.subForm{
+	background-color:#33AA33;
+	border:2px solid #33AA33;
+	border-radius:5px;
+	color:#fff;
+	cursor: pointer;
+	font-family:"Tahoma";
+	width:300px;
+}.subForm:hover{
+	border:2px solid #6666ff;
+	background-color:#6666ff;
+	color:#fff;
 }
 
 @media screen and (max-width: 675px) {
@@ -97,12 +158,15 @@ a{
 		width:150px;
 	}
 	#content{
-		margin:0 auto;	
+		margin:25px auto;	
+	}
+	.input100{
+		width:calc(100% - 24px);
+	}
+	.label100{
+		width:calc(100%);
+	}.subForm{
+		width:calc(100%);
 	}
 }
-   
 
-.vMargin{
-	width:100%;
-	clear:both;
-}
