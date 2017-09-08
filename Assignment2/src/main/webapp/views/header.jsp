@@ -44,7 +44,7 @@
 <body>
 	<div id="container">
 		<div id="header">
-			<div id="title"><a href="index.jsp"><font color="#6666ff">sky</font><font color="#33AA33">Park</font></a></div>
+			<div id="title"><a href="index.jsp"><font color="#6666ff">skyline</font><font color="#33AA33">Park</font></a></div>
 			<div id="timestamp">
 				<div id="timestampTime"></div>
 				<div id="timestampDay"></div>
