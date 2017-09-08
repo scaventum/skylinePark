@@ -1,4 +1,3 @@
-<%@include file="functions/database.jsp" %>
 <%
 String mode = request.getParameter("mode");
 

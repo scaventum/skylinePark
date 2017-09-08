@@ -29,7 +29,7 @@ $(document).ready(function() {
 		s_parking=parseInt(s_hour)*3600+parseInt(s_minute)*60+parseInt(s_second);
 		f_parking=parseInt(f_hour)*3600+parseInt(f_minute)*60+parseInt(f_second);
 		s_charging=32400; //09:00:00 -+ 3600 every hour
-		f_charging=61200; //17:00:00 -+ 3600 every hour
+		f_charging=75600; //17:00:00 -+ 3600 every hour , 75600 at 9
 		s_act=0;
 		if(s_charging<s_parking){
 			s_act=s_parking;
@@ -60,7 +60,7 @@ $(document).ready(function() {
 </script>
 
 <div id="content">
-	<form action="" method="post">
+	<form action="payAction" method="post">
 		<div class="label100">Car Plate Number</div>
 		<div class="vMargin" style="height:5px;"></div>
 		<input class="input100" name="txtCarPlateNO" maxlength=6  minlength=6 required>
