@@ -38,6 +38,15 @@
 	
 	$(document).ready(function() {
 		timeFunction();
+		
+		<% 
+		if(request.getParameter("alert")!=null){
+			String alert=request.getParameter("alert");
+			if(alert.equals("inv_ticket")){
+				%>alert("Invalid Ticket Number");<%
+			}
+		}
+		%>
 	});
 </script>
 </head>

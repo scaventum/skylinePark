@@ -29,7 +29,7 @@ $(document).ready(function() {
 		s_parking=parseInt(s_hour)*3600+parseInt(s_minute)*60+parseInt(s_second);
 		f_parking=parseInt(f_hour)*3600+parseInt(f_minute)*60+parseInt(f_second);
 		s_charging=32400; //09:00:00 -+ 3600 every hour
-		f_charging=75600; //17:00:00 -+ 3600 every hour , 75600 at 9
+		f_charging=61200; //17:00:00 -+ 3600 every hour , 75600 at 9, 61200 at 5
 		s_act=0;
 		if(s_charging<s_parking){
 			s_act=s_parking;

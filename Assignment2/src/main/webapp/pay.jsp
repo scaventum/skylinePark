@@ -5,7 +5,7 @@ if(mode==null){
 	%><jsp:include page="views/header.jsp" /><% 
 		
 	String[] unrestricted = {"Sun"};
-	String[] freeday = {"Sat", "Sun"};
+	String[] freeday = {"Sat","Sun"};
  	int i=0;
  	boolean payday=true;
     for(i=0;i<freeday.length;i++){
@@ -15,7 +15,7 @@ if(mode==null){
     }
     if(payday){
     	int open = 25200; //09:00:00 -+ 3600 every hour
-    	int close = 75600; //17:00:00 -+ 3600 every hour , 75600 at 9
+    	int close = 61200; //17:00:00 -+ 3600 every hour , 75600 at 9,61200 at 5
     	int now = Integer.parseInt(new java.text.SimpleDateFormat("H").format(new java.util.Date()))*3600;
     	if(now>close || now<open){
     		payday=false;
