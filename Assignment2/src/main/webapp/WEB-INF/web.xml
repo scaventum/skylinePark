@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>dbAccess.indexAction</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>refundAction</servlet-name>
+  	<display-name>refundAction</display-name>
+  	<description></description>
+  	<servlet-class>dbAccess.refundAction</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>payAction</servlet-name>
   	<url-pattern>/payAction</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>indexAction</servlet-name>
   	<url-pattern>/indexAction</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>refundAction</servlet-name>
+  	<url-pattern>/refundAction</url-pattern>
   </servlet-mapping>
 </web-app>

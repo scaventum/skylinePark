@@ -119,11 +119,17 @@ a{
 	color:#fff;
 	cursor: pointer;
 	font-family:"Tahoma";
+}.btnForm[disabled='disabled']{
+	background-color:#999999 !important;
+	border:2px solid #999999 !important;
+	color:#cccccc !important;
 }.btnForm:hover{
 	border:2px solid #6666ff;
 	background-color:#6666ff;
 	color:#fff;
 }
+
+
 
 .subForm{
 	margin:0 auto;
@@ -167,6 +173,8 @@ a{
 }.popUpClose:hover{
 	background-color:#ff6666;
 	color:#fff;
+}#popUpInfo{
+	text-align:left;
 }
 
 

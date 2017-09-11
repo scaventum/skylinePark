@@ -10,12 +10,12 @@ $(document).ready(function() {
 		s_minute=$("input[name='txtStartTime']").val().substring(3, 5);
 		s_hour=$("input[name='txtStartTime']").val().substring(0, 2);
 		f_second=parseInt(s_second)+d_second;
-		if(f_second>60){
+		if(f_second>=60){
 			f_second=f_second-60;
 			d_minute=d_minute+1;
 		}
 		f_minute=parseInt(s_minute)+d_minute;
-		if(f_minute>60){
+		if(f_minute>=60){
 			f_minute=f_minute-60;
 			d_hour=d_hour+1;
 		}

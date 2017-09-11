@@ -44,6 +44,8 @@
 			String alert=request.getParameter("alert");
 			if(alert.equals("inv_ticket")){
 				%>alert("Invalid Ticket Number");<%
+			}else if(alert.equals("ref_ticket")){
+				%>alert("Ticket Number Has Been Refunded");<%
 			}
 		}
 		%>
