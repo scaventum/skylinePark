@@ -20,8 +20,26 @@ public class payAction extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String Action = request.getParameter("Action");
+		
+		if(Action.equals("getBalance")) {
+			try {
+				newConnection = new DBConnection();
+				String CarPlateNO = request.getParameter("CarPlateNO");
+				String Balance = newConnection.getValue("Select Sum(Amount) From balance Where CarPlateNO = '"+CarPlateNO+"' ");
+				if(Balance.equals("")) {
+					Balance="";
+				}else {
+					Balance="$ "+Balance;
+				}
+				response.setContentType("text/plain");
+				response.getWriter().write(Balance);
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -46,8 +64,28 @@ public class payAction extends HttpServlet {
 				String FinishTime=new java.text.SimpleDateFormat("Y-MM-dd").format(new java.util.Date())+" "+request.getParameter("txtFinishTime");
 				transaction=true;
 				if(transaction){
-					String Query = "Insert Into tr_ticket Values ('"+Autonumbering+"','"+request.getParameter("txtCarPlateNO").toUpperCase()+"','"+StartTime+"','"+FinishTime+"','"+request.getParameter("txtFee").replace("$ ", "")+"',NOW())";
+					Double Fee = Double.parseDouble(request.getParameter("txtFee").replace("$ ", ""));
+					Double Balance = 0.00;
+					Double NettFee = 0.00;
+					Double BalanceShift = 0.00;
+					if(!request.getParameter("txtBalance").equals("")) {
+						Balance=Double.parseDouble(request.getParameter("txtBalance").replace("$ ", ""));	
+					}
+					if(Fee>Balance) {
+						NettFee = Fee - Balance;
+						BalanceShift = Balance*(-1);
+					}else {
+						NettFee = 0.00;
+						BalanceShift = Fee*(-1);
+					}
+					String Query = "Insert Into tr_ticket Values ('"+Autonumbering+"','"+request.getParameter("txtCarPlateNO").toUpperCase()+"', "
+							     + "'"+StartTime+"','"+FinishTime+"',"+NettFee+",NOW())";
 					newConnection.executeSQL(Query);
+					
+					if(BalanceShift!=0) {
+						Query = "Insert Into balance Values ('"+Autonumbering+"','"+request.getParameter("txtCarPlateNO").toUpperCase()+"',"+BalanceShift+",NOW())";
+						newConnection.executeSQL(Query);
+					}
 					//response.sendRedirect("display.jsp?TicketNO="+Autonumbering);
 					
 					ArrayList<String> TicketHD = new ArrayList<String>();

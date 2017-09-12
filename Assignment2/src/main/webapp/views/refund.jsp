@@ -174,6 +174,9 @@ table{
 			<td valign="top">-</td><td>$1.50 per hour from Monday to Friday between 09:00 and 17:00</td>
 		</tr>
 		<tr>
+			<td valign="top">-</td><td>Deposit Balance will be deducted first if exists.</td>
+		</tr>
+		<tr>
 			<td valign="top">-</td><td>Two hours maximum parking duration</td>
 		</tr>
 		<tr>
