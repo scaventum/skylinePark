@@ -59,6 +59,8 @@ public class payAction extends HttpServlet {
 						request.setAttribute("StartTime",TicketHD.get(2));
 						request.setAttribute("EndTime",TicketHD.get(3));
 						request.setAttribute("Fee",TicketHD.get(4));
+						
+						
 						request.setAttribute("TransTime",TicketHD.get(5));
 
 						request.getRequestDispatcher("display.jsp").forward(request, response);

@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dbAccess.DBConnection;
 
-
 public class refundAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DBConnection newConnection; 
