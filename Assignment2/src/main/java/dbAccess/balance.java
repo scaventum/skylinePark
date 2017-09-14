@@ -54,7 +54,6 @@ public class balance extends HttpServlet {
 			}
 		}
 	}
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
