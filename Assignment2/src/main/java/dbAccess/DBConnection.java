@@ -60,16 +60,17 @@ public class DBConnection {
 		try {
 			myStmt = myConn.prepareStatement(Query);
 			myRs = myStmt.executeQuery();
-			
 			while(myRs.next()) {
 				ResultSetMetaData myRsmd = myRs.getMetaData();
 		        for (int i = 1; i <= myRsmd.getColumnCount(); i++) {
 		        	result.add(myRs.getString(i));
+		    		System.out.print(myRs.getString(i));
 		        }
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+		
 		return result;
 	}
 	

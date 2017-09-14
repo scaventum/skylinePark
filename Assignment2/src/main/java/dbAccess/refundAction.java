@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dbAccess.DBConnection;
 
-
 public class refundAction extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DBConnection newConnection; 
@@ -27,7 +26,7 @@ public class refundAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String btnRefund = request.getParameter("btnRefund");
 		if(btnRefund!=null){
-			String Formatting = new java.text.SimpleDateFormat("YMMdd").format(new java.util.Date());
+			String Formatting = "R"+new java.text.SimpleDateFormat("YMMdd").format(new java.util.Date());
 			
 			try {
 				boolean transaction=true;

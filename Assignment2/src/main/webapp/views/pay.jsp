@@ -1,8 +1,21 @@
 <script>
 $(document).ready(function() {
 	$(".popUp").hide();
+
+	$("input[name='txtCarPlateNO']").change(function(e){
+		var CarPlateNO = $(this).val();
+		$.get('payAction', {
+			Action : "getBalance",
+			CarPlateNO : CarPlateNO
+		}, function(result) {
+			$("input[name='txtBalance']").val(result);
+		});
+	});
+	
+	
 	
 	$(".btnMinute").click(function(e){
+		
 		d_second=0;
 		d_minute=$(this).val()%60;
 		d_hour=Math.floor($(this).val()/60);
@@ -59,6 +72,13 @@ $(document).ready(function() {
 });
 </script>
 
+<style>
+#Balance{
+	color:#33AA33;
+	font-weight: bold;
+}
+</style>
+
 <div id="content">
 	<form action="payAction" method="post">
 		<div class="label100">Car Plate Number</div>
@@ -92,6 +112,12 @@ $(document).ready(function() {
 		<div class="vMargin" style="height:5px;"></div>
 		<input class="input100" name="txtFee" placeholder="$ 0.00" readonly required>
 		<div class="vMargin" style="height:10px;"></div>
+		
+		<div class="label100">Balance</div>
+		<div class="vMargin" style="height:5px;"></div>
+		<input class="input100" name="txtBalance" placeholder="$ 0.00" readonly>
+		<div class="vMargin" style="height:10px;"></div>
+		
 		<input type="submit" name="btnPay" value="Pay" class="subForm"/>
 	</form>
 </div>
@@ -104,6 +130,9 @@ $(document).ready(function() {
 		</tr>
 		<tr>
 			<td valign="top">-</td><td>$1.50 per hour from Monday to Friday between 09:00 and 17:00</td>
+		</tr>
+		<tr>
+			<td valign="top">-</td><td>Deposit Balance will be deducted first if exists.</td>
 		</tr>
 		<tr>
 			<td valign="top">-</td><td>Two hours maximum parking duration</td>

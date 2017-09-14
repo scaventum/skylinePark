@@ -7,7 +7,7 @@ $(document).ready(function() {
 	});
 	
 	$(".popUpDisplayClose").click(function(e){
-		$("#popUpDisplay").fadeOut();
+		$(".popUp").fadeOut();
 	});
 	
 	$("#btnRefund").click(function(e) {
@@ -15,7 +15,7 @@ $(document).ready(function() {
 	});
 	
 	$(".popUpRefundClose").click(function(e){
-		$("#popUpRefund").fadeOut();
+		$(".popUp").fadeOut();
 	});
 	
 });

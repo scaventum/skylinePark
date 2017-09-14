@@ -83,10 +83,12 @@ public class indexAction extends HttpServlet {
 				Query = "Select * From tr_refund "
                       + "Where TicketNO = '"+request.getParameter("txtTicketNO")+"' ";
 				if (newConnection.exists(Query)) {
-					TicketHD = newConnection.getRow(Query);
 					transaction=false;
 					Alert="ref_ticket";
 				}
+				Query = "Select * From tr_ticket "
+                        + "Where TicketNO = '"+request.getParameter("txtTicketNO")+"' ";
+				TicketHD = newConnection.getRow(Query);
 				
 				if(transaction){
 					request.setAttribute("TicketNO",TicketHD.get(0));
