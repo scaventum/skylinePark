@@ -12,6 +12,8 @@ $(document).ready(function() {
 		});
 	});
 	
+	
+	
 	$(".btnMinute").click(function(e){
 		
 		d_second=0;
