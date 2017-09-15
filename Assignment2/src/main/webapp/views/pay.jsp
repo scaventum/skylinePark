@@ -12,55 +12,29 @@ $(document).ready(function() {
 		});
 	});
 	
-	
-	
 	$(".btnMinute").click(function(e){
 		
-		d_second=0;
-		d_minute=$(this).val()%60;
-		d_hour=Math.floor($(this).val()/60);
-		s_second=$("input[name='txtStartTime']").val().substring(6, 8);
-		s_minute=$("input[name='txtStartTime']").val().substring(3, 5);
-		s_hour=$("input[name='txtStartTime']").val().substring(0, 2);
-		f_second=parseInt(s_second)+d_second;
-		if(f_second>=60){
-			f_second=f_second-60;
-			d_minute=d_minute+1;
-		}
-		f_minute=parseInt(s_minute)+d_minute;
-		if(f_minute>=60){
-			f_minute=f_minute-60;
-			d_hour=d_hour+1;
-		}
-		f_hour=parseInt(s_hour)+d_hour;
-		f_second = _2d(f_second);
-		f_minute = _2d(f_minute);
-		f_hour = _2d(f_hour);
-		$("input[name='txtFinishTime']").val(f_hour+":"+f_minute+":"+f_second);
+		var CarPlateNO = $(this).val();
+		FinishTime="";
 		
 		
-		s_parking=parseInt(s_hour)*3600+parseInt(s_minute)*60+parseInt(s_second);
-		f_parking=parseInt(f_hour)*3600+parseInt(f_minute)*60+parseInt(f_second);
-		s_charging=32400; //09:00:00 -+ 3600 every hour
-		f_charging=61200; //17:00:00 -+ 3600 every hour , 75600 at 9, 61200 at 5
-		s_act=0;
-		if(s_charging<s_parking){
-			s_act=s_parking;
-		}else{
-			s_act=s_charging;
-		}
-		f_act=0;
-		if(f_charging>f_parking){
-			f_act=f_parking;
-		}else{
-			f_act=f_charging;
-		}
-		duration=Math.ceil((f_act-s_act)/900);
-		if(duration<0){
-			duration=0;
-		}
-		fee=(duration*0.375).toFixed(2);
-		$("input[name='txtFee']").val("$ "+fee);
+		$.get('commonFunction', {
+			Action : "getFinishTime",
+			StartTime : $("input[name='txtStartTime']").val(),
+			Duration : $(this).val()
+		}, function(result) {
+			$("input[name='txtFinishTime']").val(result);
+			FinishTime=result;
+		});
+		
+		$.get('commonFunction', {
+			Action : "getFee",
+			StartTime : $("input[name='txtStartTime']").val(),
+			Duration : $(this).val()
+		}, function(result) {
+			$("input[name='txtFee']").val("$ "+result);
+		});
+		
 	});
 
 	$("input[name='btnInfo']").click(function(e){

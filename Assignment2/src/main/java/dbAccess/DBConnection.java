@@ -64,7 +64,6 @@ public class DBConnection {
 				ResultSetMetaData myRsmd = myRs.getMetaData();
 		        for (int i = 1; i <= myRsmd.getColumnCount(); i++) {
 		        	result.add(myRs.getString(i));
-		    		System.out.print(myRs.getString(i));
 		        }
 			}
 		}catch(SQLException e) {
@@ -74,8 +73,7 @@ public class DBConnection {
 		return result;
 	}
 	
-	public String executeSQL(String Query) {
-		String result="";
+	public int executeSQL(String Query) {
 		PreparedStatement myStmt = null;
 		int myRs = 0;
 		
@@ -87,7 +85,7 @@ public class DBConnection {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		return result;
+		return myRs;
 	}
 
 	public static void main(String[] args) {
